@@ -1,7 +1,7 @@
 #!/bin/sh
 # MudiModem installer bootstrap — run ON the GL-E5800 ("Mudi") from a root shell:
 #
-#   curl -fsSL https://raw.githubusercontent.com/Antiman-cmyk/MudiModem/main/install.sh | sh
+#   curl -fsSL https://raw.githubusercontent.com/chuckman/MudiModem/main/install.sh | sh
 #
 # It downloads the installer, manifest.txt and every file the manifest lists into a staging
 # directory FIRST (a dropped connection leaves the box untouched), then hands over to
@@ -18,7 +18,7 @@
 set -eu
 
 REF="${MUDIMODEM_REF:-main}"
-BASE="${MUDIMODEM_BASE:-https://raw.githubusercontent.com/Antiman-cmyk/MudiModem/$REF}"
+BASE="${MUDIMODEM_BASE:-https://raw.githubusercontent.com/chuckman/MudiModem/$REF}"
 
 fetch() {  # $1 repo path -> stdout
   case "$BASE" in

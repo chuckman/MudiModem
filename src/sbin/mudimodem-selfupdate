@@ -26,7 +26,7 @@ case "$BASE" in
   http://*|https://*) case "$BASE" in *[!A-Za-z0-9._:/-]*) BASE="" ;; esac ;;
   *) BASE="" ;;
 esac
-BASE="${BASE:-https://raw.githubusercontent.com/Antiman-cmyk/MudiModem/main}"
+BASE="${BASE:-https://raw.githubusercontent.com/chuckman/MudiModem/main}"
 # BASE reaches the command ONLY through the environment (MUDIMODEM_BASE), never
 # spliced into the string `sh -c` re-parses — so its content is data, not code.
 CMD="${MUDIMODEM_UPDATE_CMD:-curl -fsSL \"\$MUDIMODEM_BASE/install.sh\" | sh}"

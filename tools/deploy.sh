@@ -6,11 +6,11 @@
 #
 # Packs the payload (tools/build.sh), streams it over ssh `cat` (the box has no sftp-server, so
 # scp fails) and runs the SAME installer install.sh uses — one implementation, three ssh calls.
-# MUDIMODEM_BASE is what the box records as its update source (default: upstream main).
+# MUDIMODEM_BASE is what the box records as its update source (default: this fork's main).
 set -eu
 cd "$(dirname "$0")/.."
 HOST="${MUDI_HOST:-mudi}"
-UPD_BASE="${MUDIMODEM_BASE:-https://raw.githubusercontent.com/Antiman-cmyk/MudiModem/main}"
+UPD_BASE="${MUDIMODEM_BASE:-https://raw.githubusercontent.com/chuckman/MudiModem/main}"
 SSH="ssh -o BatchMode=yes root@$HOST"
 
 # Model + firmware guard, run ON the box by the installer itself (on some LANs the usual

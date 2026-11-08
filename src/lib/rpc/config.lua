@@ -10,7 +10,7 @@ local cjson, spawn_detached, ucall, job = C.cjson, C.spawn_detached, C.ucall, C.
 -- pcall(cjson.decode, ...) on the file is safe (knowledge.md §7: pcall is only unsafe around a
 -- ubus cosocket call). Fail-silent: any network/parse failure sets error + checked=false.
 local VERSION_FILE = os.getenv("MUDIMODEM_VERSION_FILE") or "/etc/mudimodem/version.json"
-local DEFAULT_BASE = "https://raw.githubusercontent.com/Antiman-cmyk/MudiModem/main"
+local DEFAULT_BASE = "https://raw.githubusercontent.com/chuckman/MudiModem/main"
 
 -- { version, base } from the file install.sh wrote. `base` is the raw-URL root
 -- the install came from (fork/branch aware); the update check follows it so a

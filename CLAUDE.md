@@ -9,7 +9,7 @@ Rule of scope (owner): ship only what stock 4.10 lacks or does incompletely.
 
 ## How to work here
 - **Firmware and emulation live in mudi-emu** (`tools/mudi-emu`, a pinned git submodule:
-  `git submodule update --init`; its own repo is Antiman-cmyk/mudi-emu). Change emulation there,
+  `git submodule update --init`; its own repo is chuckman/mudi-emu). Change emulation there,
   push it, then bump the submodule here. `$MUDI_EMU` points the suites at another checkout's CLI.
 - **Firmware first.** Any question about how GL behaves is answered from the official image:
   `tools/mudi-emu/bin/mudi-emu fetch && … extract` unpacks the pinned 4.10.0 rootfs

@@ -172,8 +172,9 @@ from 3GPP TS 38.101-1 / 36.101.
 - `gl_modem` is not a daemon on 4.10 (nothing to signal).
 
 ### 4.6 The AT library
-Community snippets, separate repo `kevinherzig/mudi7-at-library` (CI publishes
-`dist/at-library.json` + `version.json`); a baked snapshot ships as the offline cache. Every entry
+Community snippets, separate repo `chuckman/mudi7-at-library` (fork of
+`kevinherzig/mudi7-at-library`; CI validates `dist/at-library.json` + `version.json`); a baked
+snapshot ships as the offline cache. Every entry
 has a mandatory `risk` (`read` · `set` runtime · `nv` survives factory reset), `verified[]` +
 `source` (unverified renders as "nobody yet"), and an optional `decode` field list that labels a
 comma-separated reply. Nothing auto-runs; `{{params}}` must be filled; set/nv need the

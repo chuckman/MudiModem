@@ -73,7 +73,7 @@ if "$EMU" check >/dev/null 2>&1; then
 else
   echo "== lua (ROUTER lua) SKIPPED: mudi-emu check fails (no extracted image or no qemu-user-static) =="
 fi
-SH_SUITES="revert.test.sh:src/sbin/mudimodem-revert selfupdate.test.sh:src/sbin/mudimodem-selfupdate battlimit-hotplug.test.sh: manifest.test.sh: static.test.sh: installer.test.sh:"
+SH_SUITES="fork-refs.test.sh: revert.test.sh:src/sbin/mudimodem-revert selfupdate.test.sh:src/sbin/mudimodem-selfupdate battlimit-hotplug.test.sh: manifest.test.sh: static.test.sh: installer.test.sh:"
 echo "== sh (dash + busybox ash) =="
 for shell in sh "busybox sh"; do
   for s in $SH_SUITES; do run "$shell test/${s%%:*}" $shell "test/${s%%:*}" ${s#*:}; done
@@ -88,5 +88,5 @@ command -v shellcheck >/dev/null && run "shellcheck" shellcheck -s sh -S warning
   src/sbin/mudimodem-revert src/sbin/mudimodem-selfupdate install.sh uninstall.sh src/lib/mudimodem-detach \
   src/sbin/glbattlimit src/hotplug/20-glbattlimit src/etc/init.d/* \
   src/installer/mudimodem-install tools/deploy.sh tools/build.sh \
-  test/installer.test.sh test/manifest.test.sh test/static.test.sh test/onbox/rpc-login.sh
+  test/installer.test.sh test/manifest.test.sh test/static.test.sh test/onbox/rpc-login.sh test/fork-refs.test.sh
 exit $rc

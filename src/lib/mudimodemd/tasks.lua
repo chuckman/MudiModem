@@ -59,7 +59,7 @@ end
 -- The cache is what nginx serves gzip_static at /mudimodem/at-library.json. The fetched body is
 -- cached VERBATIM once it passes the sanity check: re-encoding it through cjson would turn every
 -- empty [] into {} (the console iterates them).
-local LIB_DEFAULT_URL = "https://raw.githubusercontent.com/kevinherzig/mudi7-at-library/main/dist"
+local LIB_DEFAULT_URL = "https://raw.githubusercontent.com/chuckman/mudi7-at-library/main/dist"
 local LIB_MAX_BYTES = 1048576
 
 local function shq(s) return "'" .. tostring(s):gsub("'", "'\\''") .. "'" end

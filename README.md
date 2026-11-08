@@ -138,7 +138,7 @@ The charge-limit stack is based on **[ChiliApple](https://github.com/ChiliApple)
 From a **root shell on the router** 
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/Antiman-cmyk/MudiModem/main/install.sh | sh
+curl -fsSL https://raw.githubusercontent.com/chuckman/MudiModem/main/install.sh | sh
 ```
 
 The installer first downloads everything it needs from GitHub (so a dropped connection leaves the
@@ -146,9 +146,9 @@ router untouched), then puts the files in place, gzipping the page chunks with t
 no toolchain, nothing to build. Then **reload the GL admin in your browser** and a **MODEM** item
 appears in the top navigation. There's no reboot. It refuses firmware older than 4.10.
 
-**Installing from a fork or branch** (e.g. before a change is merged upstream): point the installer at
-that tree's raw URL. The source is recorded on the box, so the Config tab's update check and
-**Update now** keep following the same fork/branch instead of upstream:
+**Installing from a different fork or branch** (e.g. testing a change before it is merged): point
+the installer at that tree's raw URL. The source is recorded on the box, so the Config tab's update
+check and **Update now** keep following the same fork/branch instead of upstream:
 
 ```sh
 B=https://raw.githubusercontent.com/<user>/MudiModem/<branch>
@@ -158,7 +158,7 @@ curl -fsSL "$B/install.sh" | MUDIMODEM_BASE="$B" sh
 **Uninstall** is the mirror image:
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/Antiman-cmyk/MudiModem/main/uninstall.sh | sh
+curl -fsSL https://raw.githubusercontent.com/chuckman/MudiModem/main/uninstall.sh | sh
 ```
 
 **GL firmware upgrades:** leave **Keep Settings** on and MudiModem comes back with the new firmware.
@@ -167,8 +167,9 @@ nothing to reinstall afterwards and live data is back as soon as the router has 
 Settings off, GL keeps nothing at all, so run the installer again.
 
 Both scripts **refuse to run against anything that isn't a GL-E5800** on firmware 4.10 or newer.
-(This tree's default source is `Antiman-cmyk/MudiModem`; the original project by kevinherzig is the
-1.x / firmware-4.8 line.)
+(This fork installs from `chuckman/MudiModem`. Code comes from upstream
+[Antiman-cmyk/MudiModem](https://github.com/Antiman-cmyk/MudiModem); the original project by
+kevinherzig is the 1.x / firmware-4.8 line.)
 
 > **Heads up — it's a travel router on cellular.** If you administer the Mudi *over* its own cellular
 > link, a bad band or cell lock can drop the connection you're using. MudiModem's confirm-or-revert
@@ -183,7 +184,7 @@ Both scripts **refuse to run against anything that isn't a GL-E5800** on firmwar
 | MudiModem | GL firmware | notes |
 |---|---|---|
 | **2.x** (this branch) | **4.10 and later** | built on 4.10's per-slot band API, merged websocket state and `cell_info`; the installer refuses older firmware |
-| 1.x (`legacy-4.8` tag) | 4.8.x | `MUDIMODEM_REF=legacy-4.8 sh install.sh` |
+| 1.x (`legacy-4.8` tag) | 4.8.x | install from [kevinherzig/MudiModem](https://github.com/kevinherzig/MudiModem) — this fork does not carry that line |
 
 The firmware contract 2.x relies on is documented in `docs/cellular-api-4.10.md`. The band model
 and AT commands are Quectel- and firmware-specific; treat other hardware as untested.
@@ -191,7 +192,7 @@ and AT commands are Quectel- and firmware-specific; treat other hardware as unte
 ## Development
 
 No router is needed to work on MudiModem. The firmware and emulation tooling is
-[mudi-emu](https://github.com/Antiman-cmyk/mudi-emu), pinned as a submodule in `tools/mudi-emu`
+[mudi-emu](https://github.com/chuckman/mudi-emu), pinned as a submodule in `tools/mudi-emu`
 (`git submodule update --init`). `tools/mudi-emu/bin/mudi-emu fetch && tools/mudi-emu/bin/mudi-emu extract`
 unpacks GL's official 4.10.0 image, and `tools/test-local.sh` runs every test suite on the dev box —
 including passes under the **router's own** Lua, busybox shell and tools via qemu, and against

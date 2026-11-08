@@ -89,8 +89,8 @@ chmod +x "$FAKEBIN/curl"
 PATH="$FAKEBIN:$PATH" MUDIMODEM_UPDATE_LOCK="$LOCK" MUDIMODEM_UPDATE_RESULT="$RESULT" \
   MUDIMODEM_UPDATE_LOG="$LOG" MUDIMODEM_VERSION_FILE="$VF" sh "$SCRIPT"
 [ -e "$PWNED" ] && fail "shell metacharacters in the recorded base were EXECUTED"
-grep -q 'Antiman-cmyk/MudiModem/main/install.sh' "$OUT.url" || fail "a bad base must fall back to upstream main (got: $(cat "$OUT.url"))"
-[ "$(cat "$OUT")" = "https://raw.githubusercontent.com/Antiman-cmyk/MudiModem/main" ] || fail "install.sh must see the fallback base"
+grep -q 'chuckman/MudiModem/main/install.sh' "$OUT.url" || fail "a bad base must fall back to the fork's main (got: $(cat "$OUT.url"))"
+[ "$(cat "$OUT")" = "https://raw.githubusercontent.com/chuckman/MudiModem/main" ] || fail "install.sh must see the fallback base"
 echo "  ok  - unsafe base ignored, nothing executed"
 rm -rf "$T7" "$FAKEBIN"
 

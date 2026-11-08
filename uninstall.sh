@@ -1,7 +1,7 @@
 #!/bin/sh
 # MudiModem uninstaller bootstrap — run ON the GL-E5800 ("Mudi") from a root shell:
 #
-#   curl -fsSL https://raw.githubusercontent.com/Antiman-cmyk/MudiModem/main/uninstall.sh | sh
+#   curl -fsSL https://raw.githubusercontent.com/chuckman/MudiModem/main/uninstall.sh | sh
 #
 # Removes every file the manifest placed (the keep.d entry included), stops and disables our
 # services, and restarts nginx. Idempotent. It does NOT touch the modem's band/cell-lock NV —
@@ -14,7 +14,7 @@
 set -eu
 
 REF="${MUDIMODEM_REF:-main}"
-BASE="${MUDIMODEM_BASE:-https://raw.githubusercontent.com/Antiman-cmyk/MudiModem/$REF}"
+BASE="${MUDIMODEM_BASE:-https://raw.githubusercontent.com/chuckman/MudiModem/$REF}"
 ROOT="${MUDIMODEM_ROOT:-}"
 
 STAGE=$(mktemp -d /tmp/mudimodem-uninstall.XXXXXX)

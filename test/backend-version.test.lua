@@ -87,10 +87,10 @@ assert(e.source == "https://raw.githubusercontent.com/someone/MudiModem/feature-
 assert(fetched == "https://raw.githubusercontent.com/someone/MudiModem/feature-x/version.json",
        "E the daemon must fetch the recorded base: " .. tostring(fetched))
 assert(e.update_available == true and e.latest == "2.0.1", "E update from the fork")
--- Case F: a malformed base falls back to upstream (never a shell-escape vector).
+-- Case F: a malformed base falls back to the fork (never a shell-escape vector).
 writef(os.getenv("MUDIMODEM_VERSION_FILE"), '{"version":"2.0.0","base":"https://x/y;rm -rf /"}')
 local fcase = M.app_version({})
-assert(fcase.source == "https://raw.githubusercontent.com/Antiman-cmyk/MudiModem/main", "F malformed base must fall back")
+assert(fcase.source == "https://raw.githubusercontent.com/chuckman/MudiModem/main", "F malformed base must fall back")
 
 -- Case G: only a NEWER release is an update — a dev/fork install ahead of main
 -- is not offered a downgrade, and numbers compare as numbers (2.0.10 > 2.0.9).

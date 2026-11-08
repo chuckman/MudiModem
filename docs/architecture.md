@@ -249,7 +249,7 @@ Revert  频段：插件内用 glc 写回快照；锁小区：守护进程的 res
 
 ### 6.1 模拟优先的验证策略（2026-11-02 已验证可行）
 维护者的要求：能用固件确认的就用固件确认，尽量不做实机测试。下面这几层都已经在开发机上跑通。固件和模拟工具
-是独立仓库 [mudi-emu](https://github.com/Antiman-cmyk/mudi-emu)，以子模块固定在 `tools/mudi-emu`（以后开发别的
+是独立仓库 [mudi-emu](https://github.com/chuckman/mudi-emu)，以子模块固定在 `tools/mudi-emu`（以后开发别的
 Mudi 应用也用它）；MudiModem 只保留自己的测试驱动、场景和夹具（`test/mudiemu.py` 是 Python 测试找到它的入口）。
 
 | 层 | 做法 | 状态 |
